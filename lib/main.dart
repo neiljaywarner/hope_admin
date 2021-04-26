@@ -297,6 +297,6 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: GetEventGroupNames());
+      body: UserInformation());
   }
 }
