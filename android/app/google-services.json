@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "92102232431",
+    "firebase_url": "https://hope-app-97fec.firebaseio.com",
+    "project_id": "hope-app-97fec",
+    "storage_bucket": "hope-app-97fec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92102232431:android:15f3ba54bdd17f87",
+        "android_client_info": {
+          "package_name": "com.spiritflightapps.hopesignin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92102232431-akpsshpjfpedgsjvi4cd9uslfkehb643.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.spiritflightapps.hopesignin",
+            "certificate_hash": "bd07e3d079c70fc3d6e84bf0eef6aeb6f95f3c4b"
+          }
+        },
+        {
+          "client_id": "92102232431-qe07gtgaukj6ucmob8v2141j5r2hvhdl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSpvmKlR1oYEWAM2W62Gtrpfe5WM_r90Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92102232431-qe07gtgaukj6ucmob8v2141j5r2hvhdl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "92102232431-akhlrcl5f3pll0i8vfi3h01r65eq699q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.spiritflightapps.hopeSignIn"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92102232431:android:6c62f43bead4fa4725409a",
+        "android_client_info": {
+          "package_name": "hopeww.org.hope_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92102232431-qe07gtgaukj6ucmob8v2141j5r2hvhdl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSpvmKlR1oYEWAM2W62Gtrpfe5WM_r90Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92102232431-qe07gtgaukj6ucmob8v2141j5r2hvhdl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "92102232431-akhlrcl5f3pll0i8vfi3h01r65eq699q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.spiritflightapps.hopeSignIn"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
