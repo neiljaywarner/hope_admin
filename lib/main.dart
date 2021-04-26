@@ -10,12 +10,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
+import 'package:hope_admin/cloudfirestore_demo/add_user.dart';
 
 import 'tabs_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //await Firebase.initializeApp();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -42,6 +44,26 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class FirebaseCloudStoreTest extends StatefulWidget {
+  @override
+  _FirebaseCloudStoreTestState createState() => _FirebaseCloudStoreTestState();
+}
+
+class _FirebaseCloudStoreTestState extends State<FirebaseCloudStoreTest> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title, this.analytics, this.observer})
@@ -276,6 +298,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: <Widget>[
+          AddUser("Paul", "hope", 12),
+          GetUserName("documentId"),
           MaterialButton(
             onPressed: _sendAnalyticsEvent,
             child: const Text('Test logEvent'),
@@ -291,14 +315,6 @@ class _MyHomePageState extends State<MyHomePage> {
           MaterialButton(
             onPressed: _testSetCurrentScreen,
             child: const Text('Test setCurrentScreen'),
-          ),
-          MaterialButton(
-            onPressed: _testSetAnalyticsCollectionEnabled,
-            child: const Text('Test setAnalyticsCollectionEnabled'),
-          ),
-          MaterialButton(
-            onPressed: _testSetSessionTimeoutDuration,
-            child: const Text('Test setSessionTimeoutDuration'),
           ),
           MaterialButton(
             onPressed: _testSetUserProperty,
