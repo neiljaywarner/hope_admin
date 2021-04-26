@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:hope_admin/cloudfirestore_demo/add_user.dart';
+import 'package:hope_admin/events/simple_event_list.dart';
 
 import 'events/get_eventgroup_name.dart';
 import 'tabs_page.dart';
@@ -297,6 +298,6 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: UserInformation());
+      body: SimpleEventList());
   }
 }
