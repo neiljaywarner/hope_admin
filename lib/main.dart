@@ -299,7 +299,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: <Widget>[
           AddUser("Paul", "hope", 12),
-          GetUserName("documentId"),
+          GetUserName("HXyk9HeB4p8ZyotmYFW6"),
           MaterialButton(
             onPressed: _sendAnalyticsEvent,
             child: const Text('Test logEvent'),
