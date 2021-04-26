@@ -12,6 +12,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:hope_admin/cloudfirestore_demo/add_user.dart';
 
+import 'events/get_eventgroup_name.dart';
 import 'tabs_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -296,44 +297,6 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
-        children: <Widget>[
-          AddUser("Paul", "hope", 12),
-          GetUserName("HXyk9HeB4p8ZyotmYFW6"),
-          MaterialButton(
-            onPressed: _sendAnalyticsEvent,
-            child: const Text('Test logEvent'),
-          ),
-          MaterialButton(
-            onPressed: _testAllEventTypes,
-            child: const Text('Test standard event types'),
-          ),
-          MaterialButton(
-            onPressed: _testSetUserId,
-            child: const Text('Test setUserId'),
-          ),
-          MaterialButton(
-            onPressed: _testSetCurrentScreen,
-            child: const Text('Test setCurrentScreen'),
-          ),
-          MaterialButton(
-            onPressed: _testSetUserProperty,
-            child: const Text('Test setUserProperty'),
-          ),
-          Text(_message,
-              style: const TextStyle(color: Color.fromARGB(255, 0, 155, 0))),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute<TabsPage>(
-              settings: const RouteSettings(name: TabsPage.routeName),
-              builder: (BuildContext context) {
-                return TabsPage(widget.observer);
-              }));
-        },
-        child: const Icon(Icons.tab),
-      ),
-    );
+      body: GetEventGroupNames());
   }
 }
