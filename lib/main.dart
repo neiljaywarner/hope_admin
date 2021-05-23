@@ -10,7 +10,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
-import 'package:hope_admin/cloudfirestore_demo/add_user.dart';
 import 'package:hope_admin/events/simple_event_list.dart';
 
 import 'events/get_eventgroup_name.dart';
@@ -292,12 +291,23 @@ class _MyHomePageState extends State<MyHomePage> {
     setMessage('All standard events logged successfully');
   }
 
+  // TODO: Convert to hookwidgte
+
+
   @override
   Widget build(BuildContext context) {
+    DateTime may5 = DateTime(2021, 5,15);
+    DateTime june19 = DateTime(2021,6,19);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: [
+          IconButton(icon: Icon(Icons.icecream), onPressed: () {
+            showDateRangePicker(context: context, firstDate: may5, lastDate: june19);
+          }
+            )
+        ],
       ),
-      body: SimpleEventList());
+      body: SimpleEventList(fromDate: may5,toDate: june19,));
   }
 }
