@@ -10,12 +10,16 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
+import 'package:hope_admin/cloudfirestore_demo/add_user.dart';
+import 'package:hope_admin/events/simple_event_list.dart';
 
+import 'events/get_eventgroup_name.dart';
 import 'tabs_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //await Firebase.initializeApp();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -42,6 +46,26 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class FirebaseCloudStoreTest extends StatefulWidget {
+  @override
+  _FirebaseCloudStoreTestState createState() => _FirebaseCloudStoreTestState();
+}
+
+class _FirebaseCloudStoreTestState extends State<FirebaseCloudStoreTest> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title, this.analytics, this.observer})
@@ -274,50 +298,6 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
-        children: <Widget>[
-          MaterialButton(
-            onPressed: _sendAnalyticsEvent,
-            child: const Text('Test logEvent'),
-          ),
-          MaterialButton(
-            onPressed: _testAllEventTypes,
-            child: const Text('Test standard event types'),
-          ),
-          MaterialButton(
-            onPressed: _testSetUserId,
-            child: const Text('Test setUserId'),
-          ),
-          MaterialButton(
-            onPressed: _testSetCurrentScreen,
-            child: const Text('Test setCurrentScreen'),
-          ),
-          MaterialButton(
-            onPressed: _testSetAnalyticsCollectionEnabled,
-            child: const Text('Test setAnalyticsCollectionEnabled'),
-          ),
-          MaterialButton(
-            onPressed: _testSetSessionTimeoutDuration,
-            child: const Text('Test setSessionTimeoutDuration'),
-          ),
-          MaterialButton(
-            onPressed: _testSetUserProperty,
-            child: const Text('Test setUserProperty'),
-          ),
-          Text(_message,
-              style: const TextStyle(color: Color.fromARGB(255, 0, 155, 0))),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute<TabsPage>(
-              settings: const RouteSettings(name: TabsPage.routeName),
-              builder: (BuildContext context) {
-                return TabsPage(widget.observer);
-              }));
-        },
-        child: const Icon(Icons.tab),
-      ),
-    );
+      body: SimpleEventList());
   }
 }
