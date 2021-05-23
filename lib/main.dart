@@ -305,13 +305,20 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
         actions: [
-          IconButton(icon: Icon(Icons.icecream), onPressed: () {
-            showDateRangePicker(context: context, 
+          IconButton(icon: Icon(Icons.icecream), onPressed: () async {
+            await showDateRangePicker(context: context,
                 initialEntryMode: DatePickerEntryMode.input,
                 initialDateRange: DateTimeRange(start: _fromDate, end: _toDate),
                 firstDate: _fromDate.subtract(Duration(hours: 24*365)),
-                lastDate: _toDate.add(Duration(hours: 24*365))
-                );
+                lastDate: _toDate.add(Duration(hours: 24*365)),
+                ).then((value) {
+                  print("**** $value");
+                  DateTime fromDate = value.start;
+                  DateTime toDate = value.end;
+                  print("**** $fromDate");
+                  print("**** $toDate");
+
+            });
           }
             )
         ],
