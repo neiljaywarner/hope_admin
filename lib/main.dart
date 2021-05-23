@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Firebase Analytics Demo',
+      title: 'Hope Signin Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
