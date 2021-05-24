@@ -47,8 +47,8 @@ class GetEventGroupName extends StatelessWidget {
         }
 
         if (snapshot.connectionState == ConnectionState.done) {
-          Map<String, dynamic> data = snapshot.data!.data()!;
-          return Text("Event Group Name: ${data['Name']} ");
+          String name =  snapshot.data!.get('Name');
+          return Text("Event Group Name: $name ");
         }
 
         return Text("loading");

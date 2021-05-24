@@ -10,7 +10,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
-import 'package:hope_admin/cloudfirestore_demo/add_user.dart';
 import 'package:hope_admin/events/simple_event_list.dart';
 
 import 'events/get_eventgroup_name.dart';
@@ -39,7 +38,6 @@ class MyApp extends StatelessWidget {
       ),
       navigatorObservers: <NavigatorObserver>[observer],
       home: MyHomePage(
-        title: 'Firebase Analytics Demo',
         analytics: analytics,
         observer: observer,
       ),
@@ -292,12 +290,43 @@ class _MyHomePageState extends State<MyHomePage> {
     setMessage('All standard events logged successfully');
   }
 
+  // TODO: Convert to hookwidgte
+
+  static  DateTime may5 = DateTime(2021, 5,15);
+  static  DateTime june19 = DateTime(2021,6,19);
+  DateTime _fromDate = may5;
+  DateTime _toDate = june19;
+
   @override
   Widget build(BuildContext context) {
+    String dateRangeString = _fromDate.month.toString() + "/" + _fromDate.day.toString() + "-" +  _toDate.month.toString() + "/" + _toDate.day.toString();
+    // TODO: Extension methods
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text("Denton $dateRangeString"),
+        actions: [
+          IconButton(icon: Icon(Icons.date_range_rounded), onPressed: () async {
+            await showDateRangePicker(context: context,
+                initialEntryMode: DatePickerEntryMode.input,
+                initialDateRange: DateTimeRange(start: _fromDate, end: _toDate),
+                firstDate: _fromDate.subtract(Duration(hours: 24*365)),
+                lastDate: _toDate.add(Duration(hours: 24*365)),
+                ).then((value) {
+                  print("**** $value");
+                  DateTime fromDate = value.start;
+                  DateTime toDate = value.end;
+                  print("**** $fromDate");
+                  print("**** $toDate");
+                  setState(() {
+                    _fromDate = value.start;
+                    _toDate = value.end;
+                  });
+
+            });
+          }
+            )
+        ],
       ),
-      body: SimpleEventList());
+      body: SimpleEventList(fromDate: _fromDate,toDate: _toDate,));
   }
 }
