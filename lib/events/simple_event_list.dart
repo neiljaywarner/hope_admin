@@ -65,6 +65,7 @@ class EventListWidget extends StatelessWidget {
             String dateString = startDate.toLocal().toString();
             String shortDescription = document.get('ShortDescription');
             // TODO: With html
+            dateString = dateString.substring(5, dateString.lastIndexOf(":"));
             return Card(
               margin: const EdgeInsets.all(8),
               shadowColor: Theme.of(context).primaryColor,
@@ -74,7 +75,7 @@ class EventListWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     new Text(name),
-                    new Text(dateString.substring(0, dateString.lastIndexOf(":")))
+                    new Text(dateString)
                   ],
                 ),
                 subtitle: new HtmlWidget(shortDescription),
