@@ -65,15 +65,20 @@ class EventListWidget extends StatelessWidget {
             String dateString = startDate.toLocal().toString();
             String shortDescription = document.get('ShortDescription');
             // TODO: With html
-            return new ListTile(
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  new Text(name),
-                  new Text(dateString.substring(0, dateString.lastIndexOf(":")))
-                ],
+            return Card(
+              margin: const EdgeInsets.all(8),
+              shadowColor: Theme.of(context).primaryColor,
+              elevation: 7,
+              child: ListTile(
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    new Text(name),
+                    new Text(dateString.substring(0, dateString.lastIndexOf(":")))
+                  ],
+                ),
+                subtitle: new HtmlWidget(shortDescription),
               ),
-              subtitle: new HtmlWidget(shortDescription),
             );
           }).toList(),
         );
