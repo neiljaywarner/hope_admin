@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 // Import the firebase_core and cloud_firestore plugin
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:hope_admin/events/get_eventgroup_name.dart';
 
 
@@ -62,11 +63,17 @@ class EventListWidget extends StatelessWidget {
             Timestamp timestamp = document.get('StartDateTime');
             DateTime startDate = timestamp.toDate();
             String dateString = startDate.toLocal().toString();
-            ///String shortDescription = document.shortDescription
+            String shortDescription = document.get('ShortDescription');
             // TODO: With html
             return new ListTile(
-              title: new Text(name),
-              subtitle: new Text(dateString),
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  new Text(name),
+                  new Text(dateString.substring(0, dateString.lastIndexOf(":")))
+                ],
+              ),
+              subtitle: new HtmlWidget(shortDescription),
             );
           }).toList(),
         );

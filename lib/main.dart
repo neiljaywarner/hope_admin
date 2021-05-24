@@ -38,7 +38,6 @@ class MyApp extends StatelessWidget {
       ),
       navigatorObservers: <NavigatorObserver>[observer],
       home: MyHomePage(
-        title: 'Firebase Analytics Demo',
         analytics: analytics,
         observer: observer,
       ),
@@ -300,12 +299,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
+    String dateRangeString = _fromDate.month.toString() + "/" + _fromDate.day.toString() + "-" +  _toDate.month.toString() + "/" + _toDate.day.toString();
+    // TODO: Extension methods
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text("Denton $dateRangeString"),
         actions: [
-          IconButton(icon: Icon(Icons.icecream), onPressed: () async {
+          IconButton(icon: Icon(Icons.date_range_rounded), onPressed: () async {
             await showDateRangePicker(context: context,
                 initialEntryMode: DatePickerEntryMode.input,
                 initialDateRange: DateTimeRange(start: _fromDate, end: _toDate),
@@ -317,12 +317,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   DateTime toDate = value.end;
                   print("**** $fromDate");
                   print("**** $toDate");
+                  setState(() {
+                    _fromDate = value.start;
+                    _toDate = value.end;
+                  });
 
             });
           }
             )
         ],
       ),
-      body: SimpleEventList(fromDate: may5,toDate: june19,));
+      body: SimpleEventList(fromDate: _fromDate,toDate: _toDate,));
   }
 }
