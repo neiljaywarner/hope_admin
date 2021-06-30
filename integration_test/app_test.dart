@@ -8,3 +8,15 @@ void main() {
     expect(2 + 2, equals(5));
   });
 }
+
+// to run for testlab
+/*
+./flutterw build apk
+
+pushd android
+# flutter build generates files in android/ for building the app
+./gradlew app:assembleAndroidTest
+./gradlew app:assembleDebug -Ptarget=integration_test/app_test.dart
+popd
+
+ */

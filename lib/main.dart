@@ -12,6 +12,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:hope_admin/events/simple_event_list.dart';
 
+import 'eventgroups/simple_eventgroup_list.dart';
 import 'events/get_eventgroup_name.dart';
 import 'tabs_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -37,10 +38,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       navigatorObservers: <NavigatorObserver>[observer],
-      home: MyHomePage(
-        analytics: analytics,
-        observer: observer,
-      ),
+      home: SimpleEventGroupList(),
     );
   }
 }
@@ -306,6 +304,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("Denton $dateRangeString"),
         actions: [
           IconButton(icon: Icon(Icons.date_range_rounded), onPressed: () async {
+            print("*************** pressed date range");
             await showDateRangePicker(context: context,
                 initialEntryMode: DatePickerEntryMode.input,
                 initialDateRange: DateTimeRange(start: _fromDate, end: _toDate),

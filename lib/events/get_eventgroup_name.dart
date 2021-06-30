@@ -69,3 +69,9 @@ List<String> eventGroupIds = ["f22bf977-d178-41bb-9283-6da8e6804bbb",
     "09ce9166-fdf5-4a28-9747-1f8eac3abd6f",
     "564c83c7-3ad3-4ccb-aed8-9d2490c0de9b"];
 
+// name "dallas fort worth is f22bf977-d178-41bb-9283-6da8e6804bbb wiht parentid 066d3d70-4618-4bba-82f6-b721717d31f6
+// texas is 066d3d70-4618-4bba-82f6-b721717d31f6 with parent is 55b92780-abc2-4bc0-93e2-c3c3d9b9c2c5
+// f22bf977-d178-41bb-9283-6da8e6804bbb has only one child c2b2ab99-5ede-4b8e-866d-a30700981ea7 whihc is Dallas fort worth public events - has only one child
+// and has a lot of events
+
+
